@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+//To reference event info above (note this comes from server.js and id is not handled in front-end)
+  //{title: 'WIT Panel', location: 'Zoom', eventtime: "29/03/23"}
+
 const AddEventForm = () => {
   //This is the state with the initial values empty"
   const [addevent, setAddEvent] = useState({
@@ -8,13 +11,18 @@ const AddEventForm = () => {
     eventtime: "",
   });
 
-  //To reference event info above (note this comes from server.js and id is not handled in front-end)
-  //{title: 'WIT Panel', location: 'Zoom', eventtime: "29/03/23"}
-
   const handleTitleChange = (e) => {
     e.preventDefault();
     let titleUserGives = e.target.value;
-    console.log(titleUserGives);
+   // console.log(titleUserGives); //commenting out this was just to check typing
+   setAddEvent((addevent) => ({...addevent, title: titleUserGives})); //similar to prior KC (passing new data)
+   console.log(addevent.titleUserGives);
+  };
+
+  const handleLocationChange = (e) => {
+    e.preventDefault();
+    let locationUserGives = e.target.value;
+    console.log(locationUserGives);
   };
 
   return (
