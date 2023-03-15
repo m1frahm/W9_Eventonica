@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 //To reference event info above (note this comes from server.js and id is not handled in front-end)
-  //{title: 'WIT Panel', location: 'Zoom', eventtime: "29/03/23"}
+//{title: 'WIT Panel', location: 'Zoom', eventtime: "29/03/23"}
 
 const AddEventForm = () => {
   //This is the state with the initial values empty"
@@ -14,39 +14,47 @@ const AddEventForm = () => {
   const handleTitleChange = (e) => {
     e.preventDefault();
     let titleUserGives = e.target.value;
-   // console.log(titleUserGives); //commenting out this was just to check typing
-   setAddEvent((addevent) => ({...addevent, title: titleUserGives})); //similar to prior KC (passing new data)
-   console.log(addevent.titleUserGives);
+    //console.log(titleUserGives); //commenting out this was just to check typing
+    setAddEvent((addevent) => ({ ...addevent, title: titleUserGives })); //similar to prior KC (passing new data)
+    console.log(addevent.titleUserGives);
   };
 
   const handleLocationChange = (e) => {
     e.preventDefault();
     let locationUserGives = e.target.value;
     //console.log(locationUserGives);
-    setAddEvent((addevent) => ({...addevent, location: locationUserGives})); //similar to prior KC (passing new data)
+    setAddEvent((addevent) => ({ ...addevent, location: locationUserGives })); //similar to prior KC (passing new data)
     console.log(addevent.locationUserGives);
   };
 
   return (
     <form>
-      <label>Event Title</label>
+      <label>Event Title:</label>
       <input
         type="text"
         id="add-event-title"
-        placeholder="The Title of your Event"
+        placeholder="Title of your Event"
         required
         value={addevent.title} //this indicates we would need state
         onChange={handleTitleChange}
       />
 
-      <label>Placeholder</label>
+      <label>Placeholder:</label>
       <input
         type="text"
         id="add-event-location"
         placeholder="Location of your Event"
         required
         value={addevent.location} //this indicates we would need state
-        onChange={handleTitleChange}
+        onChange={handleLocationChange}
+      />
+
+      <label>Date:</label>
+      <input
+        type="date"
+        id="add-event-date"
+        value={addevent.eventtime} //this indicates we would need state
+        onChange={handleDateChange}
       />
     </form>
   );
