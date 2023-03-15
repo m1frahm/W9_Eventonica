@@ -16,7 +16,7 @@ const AddEventForm = () => {
     let titleUserGives = e.target.value;
     //console.log(titleUserGives); //commenting out this was just to check typing
     setAddEvent((addevent) => ({ ...addevent, title: titleUserGives })); //similar to prior KC (passing new data)
-    console.log(addevent.title);
+   // console.log(addevent.title);
   };
 
   const handleLocationChange = (e) => {
@@ -24,7 +24,7 @@ const AddEventForm = () => {
     let locationUserGives = e.target.value;
     //console.log(locationUserGives);
     setAddEvent((addevent) => ({ ...addevent, location: locationUserGives })); //similar to prior KC (passing new data)
-    console.log(addevent.location);
+    //console.log(addevent.location);
   };
 
   const handleDateChange = (e) => {
@@ -32,7 +32,13 @@ const AddEventForm = () => {
     let dateUserGives = e.target.value;
     //console.log(dateUserGives);
     setAddEvent((addevent) => ({ ...addevent, eventime: dateUserGives })); //similar to prior KC (passing new data)
-    console.log(addevent.eventtime);
+    //console.log(addevent.eventtime);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setAddEvent(addevent);
+    console.log("This is coming from handle submit",addevent);
   };
 
   return (
