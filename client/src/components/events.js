@@ -16,7 +16,7 @@ function Events() {
   }, []);
   //if you decide to pass different data, you must change the props (bc pass data from parent)
   return (
-    <CardGroup className="Events">
+    <div><CardGroup className="Events">
       {events.map((event) => (
         <EventCard
           key={event.id}
@@ -26,6 +26,8 @@ function Events() {
         />
       ))}
     </CardGroup>
+    <AddEventForm/>
+    </div>
   );
 }
 
