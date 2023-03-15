@@ -70,6 +70,7 @@ const AddEventForm = () => {
         value={addevent.eventtime} //this indicates we would need state
         onChange={handleDateChange}
       />
+      <button type="submit">Add Event</button>
     </form>
   );
 };
