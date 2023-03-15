@@ -38,8 +38,8 @@ const AddEventForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setAddEvent(addevent);
-   // console.log("This is coming from handle submit", addevent); //instead of this console log
-   props.postRequest(addevent)
+   console.log("This is coming from handle submit", addevent); //instead of this console log
+  // props.postRequest(addevent)
   };
 
   return (

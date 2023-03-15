@@ -48,6 +48,19 @@ app.get('/api/events', async (req, res) =>{
     // res.json(events);
 })
 
+//post request for server where you save event to sql database (creating route for post request)
+app.get('/api/events', async (req, res) => { //needs to be async bc receiving something from server
+
+    //real connection with the DB eventonica
+    // try{
+    //     const { rows: events } = await db.query('SELECT * FROM events');
+    //     res.send(events);
+
+    // } catch(error){
+    //     console.log(error);
+    //     return res.status(400).json({error});
+console.log("From the server post request", req.body); // referencing body:JSON.stringify(newEvent) from events.js
+    })
 
 
 app.listen(PORT, () => console.log(`Hola! Server running on Port http://localhost:${PORT}`));
