@@ -3,7 +3,7 @@ import { useState } from "react";
 //To reference event info above (note this comes from server.js and id is not handled in front-end)
 //{title: 'WIT Panel', location: 'Zoom', eventtime: "29/03/23"}
 
-const AddEventForm = () => {
+const AddEventForm = (props) => {
   //This is the state with the initial values empty"
   const [addevent, setAddEvent] = useState({
     title: "",
@@ -38,7 +38,8 @@ const AddEventForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setAddEvent(addevent);
-    console.log("This is coming from handle submit", addevent);
+   // console.log("This is coming from handle submit", addevent); //instead of this console log
+   props.postRequest(addevent)
   };
 
   return (

@@ -14,7 +14,11 @@ function Events() {
         console.log("Events fetched...", events); //console.log just for checking
       });
   }, []);
-  //if you decide to pass different data, you must change the props (bc pass data from parent)
+
+const postRequest = (newEvent) => {
+  console.log("From the parent", newEvent);
+}
+  
   return (
     <div><CardGroup className="Events">
       {events.map((event) => (
@@ -26,7 +30,7 @@ function Events() {
         />
       ))}
     </CardGroup>
-    <AddEventForm/>
+    <AddEventForm postRequest={postRequest}/>
     </div>
   );
 }
