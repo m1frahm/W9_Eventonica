@@ -36,7 +36,7 @@ const AddEventForm = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>Event Title:</label>
       <input
         type="text"
