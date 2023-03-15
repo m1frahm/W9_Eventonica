@@ -22,7 +22,9 @@ const AddEventForm = () => {
   const handleLocationChange = (e) => {
     e.preventDefault();
     let locationUserGives = e.target.value;
-    console.log(locationUserGives);
+    //console.log(locationUserGives);
+    setAddEvent((addevent) => ({...addevent, location: locationUserGives})); //similar to prior KC (passing new data)
+    console.log(addevent.locationUserGives);
   };
 
   return (
