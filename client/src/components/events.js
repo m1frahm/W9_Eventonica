@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import EventCard from "./event";
 import CardGroup from "react-bootstrap/CardGroup";
+import AddEventForm from "./addeventform";
 
 function Events() {
   const [events, setEvents] = useState([]); // using state to handle list of events

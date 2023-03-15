@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const AddEventForm = () => {
 
+    const [addevent, setAddEvent] = useState({ title: "", location: "", eventtime: "" })
+
     //To reference event info (note this comes from server.js and id is not handled in front-end)
     //{title: 'WIT Panel', location: 'Zoom', eventtime: "29/03/23"} 
     <form>
@@ -15,6 +17,6 @@ const AddEventForm = () => {
                 onChange={handleTitleChange}
     </>
 )
-}
+};
 
 export default AddEventForm;
