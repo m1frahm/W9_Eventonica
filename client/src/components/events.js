@@ -15,22 +15,21 @@ function Events() {
       });
   }, []);
 
-// const postRequest = (newEvent) => {
-//   console.log("From the parent", newEvent);
-//   return fetch("http://localhost:8080/api/events", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify(newEvent),
-//       })
-//       .then((response) => { // function takes in response
-//         return response.json(); //functions takes response as Json
-//       })
-//       .then((data) => { // this function takes data
-//         //console.log("From the front", data);
-//         console.log("From the front",data);
-//         //setEvents((events) => [...events, data]) //this data is the data i want
-//       })
-//     }
+const postRequest = (newEvent) => {
+  console.log("From the parent", newEvent);
+  return fetch("http://localhost:8080/api/events", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newEvent),
+      })
+      .then((response) => { // function takes in response
+        return response.json(); //functions takes response as Json
+      })
+      .then((data) => { // this function takes data
+       // console.log("From the front",data); //we don't care to see in console
+        setEvents((events) => [...events, data]) //this data is the data i want
+      })
+    }
 
   
   return (
@@ -44,7 +43,7 @@ function Events() {
         />
       ))}
     </CardGroup>
-    {/* <AddEventForm postRequest={postRequest}/> */}
+    <AddEventForm postRequest={postRequest}/>
     </div>
   );
 }

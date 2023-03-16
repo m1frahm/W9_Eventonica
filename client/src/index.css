@@ -15,8 +15,8 @@ code {
 }
 
 .frosting {
-  width: 25%;
-  margin-left: 1100px;
+  width: 40%;
+  margin-left: 300px;
 }
 
 .HeaderDiv {
@@ -25,4 +25,6 @@ code {
 
 .TitleDiv {
   width: 75%;
+  margin-left: 500px;
+  text-decoration-color: black;
 }
