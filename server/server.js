@@ -50,13 +50,17 @@ app.post("/api/events", async (req, res) => {
 
   //real connection with the DB eventonica
   try {
-    const newEvent = { //new variable made
-        title: req.body.title,
-        location: req.body.location,
-        eventtime: req.body.eventtime
-    }
+    const newEvent = {
+      //new variable made
+      title: req.body.title,
+      location: req.body.location,
+      eventtime: req.body.eventtime,
+    };
 
-    const result = await db.query('INSERT INTO events(title, location, eventtime) VALUES ($1, $2, $3) RETURNING *', [newEvent.title, newEvent.location, newEvent.eventtime]) //this query is a function that takes one parameter, second param is the values
+    const result = await db.query(
+      "INSERT INTO events(title, location, eventtime) VALUES ($1, $2, $3) RETURNING *",
+      [newEvent.title, newEvent.location, newEvent.eventtime]
+    ); //this query is a function that takes one parameter, second param is the values
     let response = result.rows[0]; // the only part of object we want to see
     console.log(response);
     res.json(response);
@@ -65,8 +69,8 @@ app.post("/api/events", async (req, res) => {
     return res.status(400).json({ error });
   }
 
-//   console.log("From the server, post request", req.body); // referencing body:JSON.stringify(newEvent) from events.js
-//   res.json(req.body); // server sends response so that is why you see in your console
+  //   console.log("From the server, post request", req.body); // referencing body:JSON.stringify(newEvent) from events.js
+  //   res.json(req.body); // server sends response so that is why you see in your console
 });
 
 app.listen(PORT, () =>
