@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import EventCard from "./event";
 import CardGroup from "react-bootstrap/CardGroup";
+import AddEventForm from "./addeventform";
+//import Index from './index.css';
 
 function Events() {
   const [events, setEvents] = useState([]); // using state to handle list of events
@@ -13,9 +15,26 @@ function Events() {
         console.log("Events fetched...", events); //console.log just for checking
       });
   }, []);
-  //if you decide to pass different data, you must change the props (bc pass data from parent)
+
+const postRequest = (newEvent) => {
+  console.log("From the parent", newEvent);
+  return fetch("http://localhost:8080/api/events", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newEvent),
+      })
+      .then((response) => { // function takes in response
+        return response.json(); //functions takes response as Json
+      })
+      .then((data) => { // this function takes data
+       // console.log("From the front",data); //we don't care to see in console
+        setEvents((events) => [...events, data]) //this data is the data i want
+      })
+    }
+
+  
   return (
-    <CardGroup className="Events">
+    <div><CardGroup className="Events">
       {events.map((event) => (
         <EventCard
           key={event.id}
@@ -25,6 +44,8 @@ function Events() {
         />
       ))}
     </CardGroup>
+    <AddEventForm postRequest={postRequest}/>
+    </div>
   );
 }
 
